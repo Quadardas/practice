@@ -37,8 +37,19 @@ namespace practice
                 sqlData.Fill(dataSet);
                 return dataSet;
             }
-           
+
+        public DataSet ReturnTable1(string Columns, string TablesName, string Arguments, string Find)
+        {
+            SqlDataAdapter sqlData = new SqlDataAdapter($"SELECT {Columns} FROM {TablesName} WHERE {Arguments} = '{Find}'", connection);
+            DataSet dataSet = new DataSet();
+           // form1.label4.Text = $"SELECT {Columns} FROM {TablesName} WHERE {Arguments} = '{Find}'";
+            sqlData.Fill(dataSet);
+            
+            return dataSet;
         }
+
+
+    }
 }
 
 
